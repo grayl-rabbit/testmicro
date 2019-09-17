@@ -1,0 +1,37 @@
+version: '2.1'
+services:
+  message:
+#    environment:
+#      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    build: "./message"
+    container_name: "message"
+    restart: always
+    ports:
+      - 82:4050
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+
+  auth:
+#    environment:
+#      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: auth
+    restart: always
+    ports:
+      - 83:4055
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+  config:
+#    environment:
+#      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: config
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+

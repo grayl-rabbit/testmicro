@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  message:
+    ports:
+      - 82:4050
+  auth:
+    ports:
+      - 83:4055
+  config:
+    build: config
+    ports:
+      - 8889:8889
